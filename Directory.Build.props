@@ -50,6 +50,11 @@
     <DisableImplicitComponentsAnalyzers>true</DisableImplicitComponentsAnalyzers>
   </PropertyGroup>
 
+  <!-- Enable implicit usings -->
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
   <!-- Disable logging of some task parameters or metadata to reduce binlog size.
        Reenable logging of any particular item by changing the value of the property below to 'false'
        The format is as follows:
