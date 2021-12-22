@@ -13,7 +13,7 @@ class Selenium
     const int SeleniumPort = 4444;
     const bool RunHeadlessBrowser = true;
 
-    const bool PoolForBrowserLogs = true;
+    const bool PollForBrowserLogs = true;
 
     private static async ValueTask<Uri> WaitForServerAsync(int port, CancellationToken cancellationToken)
     {
@@ -87,7 +87,7 @@ class Selenium
 
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
 
-                if (PoolForBrowserLogs)
+                if (PollForBrowserLogs)
                 {
                     // Run in background.
                     var logs = driver.Manage().Logs;

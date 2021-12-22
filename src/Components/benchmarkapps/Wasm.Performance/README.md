@@ -13,6 +13,11 @@ Here are the commands you would need to run it locally inside docker:
 2. `docker build -t blazor-local -f ./local.dockerfile . `
 3. `docker run -it blazor-local`
 
+If building for AOT, install the wasm-aot tools and publish with the `RunAOTCompilation` switch:
+
+1. `dotnet workload install wasm-tools`
+1. `dotnet publish -c Release Driver/Wasm.Performance.Driver.csproj /p:RunAOTCompilation=true`
+
 To run the benchmark app in the Benchmark server, run
 
 ```
