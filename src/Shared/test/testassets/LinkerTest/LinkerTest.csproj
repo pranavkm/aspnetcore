@@ -2,15 +2,23 @@
   <PropertyGroup>
     <TargetFramework>$(DefaultNetCoreTargetFramework)</TargetFramework>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Net.Http.Headers" />
-    <Reference Include="Microsoft.AspNetCore.WebUtilities" />
 
+  <ItemGroup>
     <!-- Packages required to produce a complete dependency graph for the trimmer -->
     <Reference Include="System.Security.Permissions" />
     <Reference Include="System.Threading.AccessControl" />
   </ItemGroup>
-  <Target Name="ILLinkTrimProjects" DependsOnTargets="ResolveReferences" AfterTargets="Build" Condition="'$(DotNetBuildFromSource)' != 'true' AND '$(SkipTestBuild)' != 'true'">
+
+  <Target Name="ResolveTrimmableAspNetCoreProjects">
+    <MSBuild
+      Projects="@(ProjectReferenceProvider->Metadata('ProjectPath'))"
+      Properties="CustomAfterMicrosoftCommonTargets=$(MSBuildThisFileDirectory)\GetTrimmableProjects.targets;CustomAfterMicrosoftCommonCrossTargetingTargets=$(MSBuildThisFileDirectory)\GetTrimmableProjects.targets"
+      Targets="GetTrimmableProjects">
+        <Output TaskParameter="TargetOutputs" ItemName="TrimmableBinary" />
+    </MSBuild>
+  </Target>
+
+  <Target Name="ILLinkTrimProjects" DependsOnTargets="ResolveTrimmableAspNetCoreProjects" AfterTargets="Build" Condition="'$(DotNetBuildFromSource)' != 'true' AND '$(SkipTestBuild)' != 'true'">
     <PropertyGroup>
       <LibrariesTrimmedArtifactsPath>$(TargetDir)linked\</LibrariesTrimmedArtifactsPath>
       <!-- Link all assemblies -->
@@ -18,10 +26,8 @@
       <ILLinkArgs Condition="'$(GenerateLinkerWarningSuppressions)' == 'true'">$(ILLinkArgs) --generate-warning-suppressions xml</ILLinkArgs>
     </PropertyGroup>
     <ItemGroup>
-      <RootAssemblies Include="@(ReferencePath->HasMetadata('ProjectPath'))" RootMode="visible" />
-      <_ILLinkSuppressionFile Include="$([System.IO.Path]::GetDirectoryName($([System.String]::new('%(RootAssemblies.ProjectPath)'))))\%(FileName).WarningSuppressions.xml"
-        SuppressionFileName="%(FileName).WarningSuppressions" />
-      <ILLinkSuppressionFile Condition="Exists(%(_ILLinkSuppressionFile.Identity))" Include="%(_ILLinkSuppressionFile.Identity)" />
+      <RootAssemblies Include="@(TrimmableBinary)" RootMode="visible" />
+      <ILLinkSuppressionFile Condition="Exists(%(TrimmableBinary.TrimmerSuppressionFile))" Include="%(TrimmableBinary.TrimmerSuppressionFile)" />
     </ItemGroup>
 
     <PropertyGroup>
@@ -53,7 +59,7 @@
       </ItemGroup>
 
        <JoinItems
-         Left="@(_ILLinkSuppressionFile)"
+         Left="@(ILLinkSuppressionFile)"
          Right="@(_UpdatedILLinkSuppressionFile)"
          LeftMetadata="*"
          RightMetadata="SourcePath"

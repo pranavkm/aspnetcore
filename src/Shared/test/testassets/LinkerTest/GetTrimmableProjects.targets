@@ -1,0 +1,26 @@
+<Project>
+  <PropertyGroup>
+    <GetTrimmableProjectsDependsOn Condition="'$(IsInnerBuild)' == 'true'">GetTrimmableProjectsInner</GetTrimmableProjectsDependsOn>
+    <GetTrimmableProjectsDependsOn Condition="'$(IsInnerBuild)' != 'true'">GetTrimmableProjectsOuter</GetTrimmableProjectsDependsOn>
+  </PropertyGroup>
+
+  <Target Name="GetTrimmableProjects" Condition="'$(Trimmable)' == 'true' AND '$(IsAspNetCoreApp)' == 'true'" DependsOnTargets="$(GetTrimmableProjectsDependsOn)" Returns="@(_TrimmableAssembly)" />
+
+  <Target Name="GetTrimmableProjectsOuter" Returns="@(_TrimmableAssembly)">
+    <MSBuild
+        Projects="$(MSBuildProjectFullPath)"
+        Targets="GetTrimmableProjectsInner"
+        Properties="CustomAfterMicrosoftCommonTargets=$(MSBuildThisFileDirectory)\GetTrimmableProjects.targets;TargetFramework=$(DefaultNetCoreTargetFramework)">
+      <Output TaskParameter="TargetOutputs" ItemName="_TrimmableAssembly" />
+    </MSBuild>
+  </Target>
+
+  <Target Name="GetTrimmableProjectsInner" DependsOnTargets="Build;GetTargetPath" Returns="@(_TrimmableAssembly)">
+    <ItemGroup Condition="'$(Trimmable)' == 'true' AND '$(IsAspNetCoreApp)' == 'true'">
+      <_TrimmableAssembly Include="@(TargetPathWithTargetPlatformMoniker)">
+        <TrimmerSuppressionFile>$(MSBuildProjectDirectory)\$(MSBuildProjectName).WarningSuppressions.xml</TrimmerSuppressionFile>
+      </_TrimmableAssembly>
+    </ItemGroup>
+  </Target>
+
+</Project>
