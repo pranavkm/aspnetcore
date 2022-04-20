@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis;
 
 namespace Microsoft.AspNetCore.SignalR.Client.SourceGenerator;
 
-internal partial class HubServerProxyGenerator
+internal sealed partial class HubServerProxyGenerator
 {
     public class SourceGenerationSpec
     {

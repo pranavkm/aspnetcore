@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Routing.Template;
 
 namespace Microsoft.AspNetCore.Mvc.ApiExplorer;
 
-internal class ApiParameterContext
+internal sealed class ApiParameterContext
 {
     public ApiParameterContext(
         IModelMetadataProvider metadataProvider,

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 namespace Microsoft.AspNetCore.Http;
 
 [GeneratedCode("TextTemplatingFileGenerator", "")]
-internal partial class ResultsCache
+internal static partial class ResultsCache
 {
     private static StatusCodeHttpResult? _status101SwitchingProtocols;
     private static StatusCodeHttpResult? _status102Processing;

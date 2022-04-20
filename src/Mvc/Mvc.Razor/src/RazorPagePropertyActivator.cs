@@ -13,7 +13,7 @@ using Microsoft.Extensions.Internal;
 
 namespace Microsoft.AspNetCore.Mvc.Razor;
 
-internal class RazorPagePropertyActivator
+internal sealed class RazorPagePropertyActivator
 {
     private readonly IModelMetadataProvider _metadataProvider;
     private readonly Func<IModelMetadataProvider, ModelStateDictionary, ViewDataDictionary> _rootFactory;

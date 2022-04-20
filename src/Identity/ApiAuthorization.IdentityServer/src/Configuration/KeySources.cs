@@ -3,7 +3,7 @@
 
 namespace Microsoft.AspNetCore.ApiAuthorization.IdentityServer.Configuration;
 
-internal class KeySources
+internal sealed class KeySources
 {
     public const string File = nameof(File);
     public const string Development = nameof(Development);

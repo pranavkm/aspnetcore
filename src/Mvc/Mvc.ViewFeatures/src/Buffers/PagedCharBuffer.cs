@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace Microsoft.AspNetCore.Mvc.ViewFeatures.Buffers;
 
-internal class PagedCharBuffer : IDisposable
+internal sealed class PagedCharBuffer : IDisposable
 {
     public const int PageSize = 1024;
     private int _charIndex;

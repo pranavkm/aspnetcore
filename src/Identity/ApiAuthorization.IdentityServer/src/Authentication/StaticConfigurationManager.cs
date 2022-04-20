@@ -6,7 +6,7 @@ using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 
-internal class StaticConfigurationManager : IConfigurationManager<OpenIdConnectConfiguration>
+internal sealed class StaticConfigurationManager : IConfigurationManager<OpenIdConnectConfiguration>
 {
     private readonly Task<OpenIdConnectConfiguration> _configuration;
 

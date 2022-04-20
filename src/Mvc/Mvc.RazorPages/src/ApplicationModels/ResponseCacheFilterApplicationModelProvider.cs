@@ -8,7 +8,7 @@ using Microsoft.Extensions.Options;
 
 namespace Microsoft.AspNetCore.Mvc.ApplicationModels;
 
-internal class ResponseCacheFilterApplicationModelProvider : IPageApplicationModelProvider
+internal sealed class ResponseCacheFilterApplicationModelProvider : IPageApplicationModelProvider
 {
     private readonly MvcOptions _mvcOptions;
     private readonly ILoggerFactory _loggerFactory;

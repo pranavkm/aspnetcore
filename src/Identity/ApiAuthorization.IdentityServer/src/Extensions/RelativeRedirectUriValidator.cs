@@ -6,7 +6,7 @@ using Duende.IdentityServer.Validation;
 
 namespace Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 
-internal class RelativeRedirectUriValidator : StrictRedirectUriValidator
+internal sealed class RelativeRedirectUriValidator : StrictRedirectUriValidator
 {
     public RelativeRedirectUriValidator(IAbsoluteUrlFactory absoluteUrlFactory)
     {

@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.AspNetCore.Server.Kestrel.Transport.Quic.Internal;
 
-internal partial class QuicStreamContext : TransportConnection, IPooledStream, IDisposable
+internal sealed partial class QuicStreamContext : TransportConnection, IPooledStream, IDisposable
 {
     // Internal for testing.
     internal Task _processingTask = Task.CompletedTask;

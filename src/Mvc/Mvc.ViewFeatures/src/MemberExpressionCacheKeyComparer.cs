@@ -3,7 +3,7 @@
 
 namespace Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-internal class MemberExpressionCacheKeyComparer : IEqualityComparer<MemberExpressionCacheKey>
+internal sealed class MemberExpressionCacheKeyComparer : IEqualityComparer<MemberExpressionCacheKey>
 {
     public static readonly MemberExpressionCacheKeyComparer Instance = new MemberExpressionCacheKeyComparer();
 

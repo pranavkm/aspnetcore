@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Routing;
 
 namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure;
 
-internal class DynamicPageMetadata : IDynamicEndpointMetadata
+internal sealed class DynamicPageMetadata : IDynamicEndpointMetadata
 {
     public DynamicPageMetadata(RouteValueDictionary values)
     {

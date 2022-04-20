@@ -3,6 +3,6 @@
 
 namespace Microsoft.AspNetCore.SignalR.Internal;
 
-internal class SignalRCoreMarkerService
+internal sealed class SignalRCoreMarkerService
 {
 }

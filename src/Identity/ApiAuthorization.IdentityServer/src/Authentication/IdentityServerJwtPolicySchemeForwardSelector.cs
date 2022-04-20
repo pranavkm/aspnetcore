@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Microsoft.AspNetCore.ApiAuthorization.IdentityServer.Authentication;
 
-internal class IdentityServerJwtPolicySchemeForwardSelector
+internal sealed class IdentityServerJwtPolicySchemeForwardSelector
 {
     private readonly PathString _identityPath;
     private readonly string _IdentityServerJwtScheme;

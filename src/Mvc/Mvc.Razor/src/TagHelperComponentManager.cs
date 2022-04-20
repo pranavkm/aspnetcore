@@ -9,7 +9,7 @@ namespace Microsoft.AspNetCore.Mvc.Razor;
 /// <summary>
 /// The default implementation of the <see cref="ITagHelperComponentManager"/>.
 /// </summary>
-internal class TagHelperComponentManager : ITagHelperComponentManager
+internal sealed class TagHelperComponentManager : ITagHelperComponentManager
 {
     /// <summary>
     /// Creates a new <see cref="TagHelperComponentManager"/>.

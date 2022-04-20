@@ -6,7 +6,7 @@ namespace Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure;
 /// <summary>
 /// Summary description for Disposable
 /// </summary>
-internal class Disposable : IDisposable
+internal sealed class Disposable : IDisposable
 {
     private Action? _dispose;
     private bool _disposedValue; // To detect redundant calls
@@ -16,7 +16,7 @@ internal class Disposable : IDisposable
         _dispose = dispose;
     }
 
-    protected virtual void Dispose(bool disposing)
+    private void Dispose(bool disposing)
     {
         if (!_disposedValue)
         {

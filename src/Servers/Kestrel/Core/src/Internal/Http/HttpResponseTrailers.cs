@@ -9,7 +9,7 @@ using Microsoft.Extensions.Primitives;
 
 namespace Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
 
-internal partial class HttpResponseTrailers : HttpHeaders
+internal sealed partial class HttpResponseTrailers : HttpHeaders
 {
     public Func<string, Encoding?> EncodingSelector { get; set; }
 

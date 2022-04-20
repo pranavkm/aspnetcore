@@ -6,9 +6,9 @@ using System.Diagnostics;
 
 namespace Microsoft.AspNetCore.Server.IIS.Core.IO;
 
-internal partial class AsyncIOEngine
+internal sealed partial class AsyncIOEngine
 {
-    internal class AsyncReadOperation : AsyncIOOperation
+    internal sealed class AsyncReadOperation : AsyncIOOperation
     {
         private readonly AsyncIOEngine _engine;
 

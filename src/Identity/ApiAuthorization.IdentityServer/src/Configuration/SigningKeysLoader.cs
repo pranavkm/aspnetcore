@@ -98,7 +98,7 @@ internal static class SigningKeysLoader
         }
     }
 
-    private class RSAKeyParameters
+    private sealed class RSAKeyParameters
     {
         public string D { get; set; }
         public string DP { get; set; }

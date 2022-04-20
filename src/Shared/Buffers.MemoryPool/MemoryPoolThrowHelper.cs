@@ -7,7 +7,7 @@ using System.Text;
 
 namespace System.Buffers;
 
-internal class MemoryPoolThrowHelper
+internal sealed class MemoryPoolThrowHelper
 {
     public static void ThrowArgumentOutOfRangeException(int sourceLength, int offset)
     {

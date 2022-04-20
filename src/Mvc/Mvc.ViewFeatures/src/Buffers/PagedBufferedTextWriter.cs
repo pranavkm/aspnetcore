@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Microsoft.AspNetCore.Mvc.ViewFeatures.Buffers;
 
-internal class PagedBufferedTextWriter : TextWriter
+internal sealed class PagedBufferedTextWriter : TextWriter
 {
     private readonly TextWriter _inner;
     private readonly PagedCharBuffer _charBuffer;

@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.AspNetCore.Server.Kestrel.Transport.Quic.Internal;
 
-internal partial class QuicConnectionContext : TransportMultiplexedConnection
+internal sealed partial class QuicConnectionContext : TransportMultiplexedConnection
 {
     // Internal for testing.
     internal PooledStreamStack<QuicStreamContext> StreamPool;

@@ -605,7 +605,7 @@ public class RedisHubLifetimeManager<THub> : HubLifetimeManager<THub>, IDisposab
         return $"{Environment.MachineName}_{Guid.NewGuid():N}";
     }
 
-    private class LoggerTextWriter : TextWriter
+    private sealed class LoggerTextWriter : TextWriter
     {
         private readonly ILogger _logger;
 
@@ -632,7 +632,7 @@ public class RedisHubLifetimeManager<THub> : HubLifetimeManager<THub>, IDisposab
         HashSet<string> Groups { get; }
     }
 
-    private class RedisFeature : IRedisFeature
+    private sealed class RedisFeature : IRedisFeature
     {
         public HashSet<string> Groups { get; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
     }

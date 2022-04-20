@@ -1587,7 +1587,7 @@ public partial class HubConnection : IAsyncDisposable
         }
     }
 
-    private class Subscription : IDisposable
+    private sealed class Subscription : IDisposable
     {
         private readonly InvocationHandler _handler;
         private readonly InvocationHandlerList _handlerList;
@@ -1604,7 +1604,7 @@ public partial class HubConnection : IAsyncDisposable
         }
     }
 
-    private class InvocationHandlerList
+    private sealed class InvocationHandlerList
     {
         private readonly List<InvocationHandler> _invocationHandlers;
         // A lazy cached copy of the handlers that doesn't change for thread safety.
@@ -1674,7 +1674,7 @@ public partial class HubConnection : IAsyncDisposable
         }
     }
 
-    private class ConnectionState : IInvocationBinder
+    private sealed class ConnectionState : IInvocationBinder
     {
         private readonly HubConnection _hubConnection;
         private readonly ILogger _logger;
@@ -1930,7 +1930,7 @@ public partial class HubConnection : IAsyncDisposable
         }
     }
 
-    private class ReconnectingConnectionState
+    private sealed class ReconnectingConnectionState
     {
         // This lock protects the connection state.
         private readonly SemaphoreSlim _connectionLock = new SemaphoreSlim(1, 1);

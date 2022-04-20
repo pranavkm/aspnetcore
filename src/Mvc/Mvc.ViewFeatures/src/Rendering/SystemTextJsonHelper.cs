@@ -8,7 +8,7 @@ using Microsoft.Extensions.Options;
 
 namespace Microsoft.AspNetCore.Mvc.Rendering;
 
-internal class SystemTextJsonHelper : IJsonHelper
+internal sealed class SystemTextJsonHelper : IJsonHelper
 {
     private readonly JsonSerializerOptions _htmlSafeJsonSerializerOptions;
 

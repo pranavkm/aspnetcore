@@ -67,7 +67,7 @@
 		new { StatusCode = 508, Name = "508LoopDetected"},
 		new { StatusCode = 510, Name = "510NotExtended"},
 		new { StatusCode = 511, Name = "511NetworkAuthenticationRequired"},
-	}; 
+	};
 #>
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
@@ -81,7 +81,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 namespace Microsoft.AspNetCore.Http;
 
 [GeneratedCode("TextTemplatingFileGenerator", "")]
-internal partial class ResultsCache
+internal static partial class ResultsCache
 {
 <# foreach (var statusCode in statusCodes) { #>
     private static StatusCodeHttpResult? _status<#= statusCode.Name #>;

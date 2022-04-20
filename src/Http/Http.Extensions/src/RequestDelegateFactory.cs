@@ -1759,7 +1759,7 @@ public static partial class RequestDelegateFactory
         await EnsureRequestResultNotNull(result).ExecuteAsync(httpContext);
     }
 
-    private class FactoryContext
+    private sealed class FactoryContext
     {
         // Options
         public IServiceProvider? ServiceProvider { get; init; }

@@ -269,7 +269,7 @@ public class DefaultApiDescriptionProvider : IApiDescriptionProvider
                         !defaultModelMetadata.Attributes.Attributes.OfType<IFromRouteMetadata>().Any())
                     {
                         // If we didn't see the parameter in the route and no FromRoute metadata is set, it probably means
-                        // the parameter binding source was inferred (InferParameterBindingInfoConvention)  
+                        // the parameter binding source was inferred (InferParameterBindingInfoConvention)
                         // probably because another route to this action contains it as route parameter and
                         // will be removed from the API description
                         // https://github.com/dotnet/aspnetcore/issues/26234
@@ -495,7 +495,7 @@ public class DefaultApiDescriptionProvider : IApiDescriptionProvider
         return endpointGroupName?.EndpointGroupName ?? extensionData.GroupName;
     }
 
-    private class ApiParameterDescriptionContext
+    private sealed class ApiParameterDescriptionContext
     {
         public ModelMetadata ModelMetadata { get; }
 
@@ -521,7 +521,7 @@ public class DefaultApiDescriptionProvider : IApiDescriptionProvider
         }
     }
 
-    private class PseudoModelBindingVisitor
+    private sealed class PseudoModelBindingVisitor
     {
         public PseudoModelBindingVisitor(ApiParameterContext context, ParameterDescriptor parameter)
         {
@@ -672,7 +672,7 @@ public class DefaultApiDescriptionProvider : IApiDescriptionProvider
             }
         }
 
-        private class PropertyKeyEqualityComparer : IEqualityComparer<PropertyKey>
+        private sealed class PropertyKeyEqualityComparer : IEqualityComparer<PropertyKey>
         {
             public bool Equals(PropertyKey x, PropertyKey y)
             {

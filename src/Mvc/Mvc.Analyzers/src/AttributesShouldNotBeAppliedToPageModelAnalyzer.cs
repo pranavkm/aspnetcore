@@ -140,7 +140,7 @@ public class AttributesShouldNotBeAppliedToPageModelAnalyzer : DiagnosticAnalyze
         return syntax?.GetLocation() ?? Location.None;
     }
 
-    private class TypeCache
+    private sealed class TypeCache
     {
         public TypeCache(Compilation compilation)
         {

@@ -7,7 +7,7 @@ namespace Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 // This comparer is tightly coupled with the logic of ExpressionHelper.GetExpressionText.
 // It is not designed to accurately compare any two arbitrary LambdaExpressions.
-internal class LambdaExpressionComparer : IEqualityComparer<LambdaExpression>
+internal sealed class LambdaExpressionComparer : IEqualityComparer<LambdaExpression>
 {
     public static readonly LambdaExpressionComparer Instance = new LambdaExpressionComparer();
 

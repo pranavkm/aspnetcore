@@ -3,6 +3,6 @@
 
 namespace Microsoft.Extensions.DependencyInjection;
 
-internal class SignalRMarkerService
+internal sealed class SignalRMarkerService
 {
 }

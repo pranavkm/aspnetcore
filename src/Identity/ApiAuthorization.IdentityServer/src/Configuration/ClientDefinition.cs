@@ -3,7 +3,7 @@
 
 namespace Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 
-internal class ClientDefinition : ServiceDefinition
+internal sealed class ClientDefinition : ServiceDefinition
 {
     public string RedirectUri { get; set; }
     public string LogoutUri { get; set; }

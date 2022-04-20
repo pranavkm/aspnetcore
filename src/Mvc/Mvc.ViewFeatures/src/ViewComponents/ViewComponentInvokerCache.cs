@@ -8,7 +8,7 @@ using Microsoft.Extensions.Internal;
 
 namespace Microsoft.AspNetCore.Mvc.ViewComponents;
 
-internal class ViewComponentInvokerCache
+internal sealed class ViewComponentInvokerCache
 {
     private readonly IViewComponentDescriptorCollectionProvider _collectionProvider;
 
@@ -66,7 +66,7 @@ internal class ViewComponentInvokerCache
         return executor;
     }
 
-    private class InnerCache
+    private sealed class InnerCache
     {
         public InnerCache(int version)
         {

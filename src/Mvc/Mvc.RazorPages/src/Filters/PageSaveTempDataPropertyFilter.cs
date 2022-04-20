@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures.Filters;
 
 namespace Microsoft.AspNetCore.Mvc.Filters;
 
-internal class PageSaveTempDataPropertyFilter : SaveTempDataPropertyFilterBase, IPageFilter
+internal sealed class PageSaveTempDataPropertyFilter : SaveTempDataPropertyFilterBase, IPageFilter
 {
     public PageSaveTempDataPropertyFilter(ITempDataDictionaryFactory factory)
         : base(factory)

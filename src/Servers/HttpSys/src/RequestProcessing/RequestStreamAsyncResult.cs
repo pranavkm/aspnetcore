@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.HttpSys.Internal;
 
 namespace Microsoft.AspNetCore.Server.HttpSys;
 
-internal unsafe class RequestStreamAsyncResult : IAsyncResult, IDisposable
+internal sealed unsafe class RequestStreamAsyncResult : IAsyncResult, IDisposable
 {
     private static readonly IOCompletionCallback IOCallback = new IOCompletionCallback(Callback);
 
@@ -148,13 +148,12 @@ internal unsafe class RequestStreamAsyncResult : IAsyncResult, IDisposable
         }
     }
 
-    [SuppressMessage("Microsoft.Usage", "CA2216:DisposableTypesShouldDeclareFinalizer", Justification = "The disposable resource referenced does have a finalizer.")]
     public void Dispose()
     {
         Dispose(true);
     }
 
-    protected virtual void Dispose(bool disposing)
+    private void Dispose(bool disposing)
     {
         if (disposing)
         {

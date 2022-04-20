@@ -3,7 +3,7 @@
 
 namespace Microsoft.AspNetCore.ApiAuthorization.IdentityServer.Configuration;
 
-internal class KeyDefinition
+internal sealed class KeyDefinition
 {
     public string Type { get; set; }
     public bool? Persisted { get; set; }

@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Microsoft.AspNetCore.Mvc.ViewFeatures.Filters;
 
-internal class ControllerSaveTempDataPropertyFilterFactory : IFilterFactory
+internal sealed class ControllerSaveTempDataPropertyFilterFactory : IFilterFactory
 {
     public ControllerSaveTempDataPropertyFilterFactory(IReadOnlyList<LifecycleProperty> properties)
     {

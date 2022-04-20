@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.AspNetCore.Server.HttpSys;
 
-internal partial class UrlGroup
+internal sealed partial class UrlGroup
 {
     private static partial class Log
     {

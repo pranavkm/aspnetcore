@@ -5,7 +5,7 @@ using Microsoft.JSInterop;
 
 namespace Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-internal class UnsupportedJavaScriptRuntime : IJSRuntime
+internal sealed class UnsupportedJavaScriptRuntime : IJSRuntime
 {
     public ValueTask<TValue> InvokeAsync<TValue>(string identifier, CancellationToken cancellationToken, object[] args)
     {

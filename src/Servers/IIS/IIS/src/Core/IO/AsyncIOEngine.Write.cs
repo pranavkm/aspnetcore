@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.HttpSys.Internal;
 
 namespace Microsoft.AspNetCore.Server.IIS.Core.IO;
 
-internal partial class AsyncIOEngine
+internal sealed partial class AsyncIOEngine
 {
-    private class AsyncWriteOperation : AsyncWriteOperationBase
+    private sealed class AsyncWriteOperation : AsyncWriteOperationBase
     {
         private readonly AsyncIOEngine _engine;
 

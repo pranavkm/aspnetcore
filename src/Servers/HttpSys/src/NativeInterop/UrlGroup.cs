@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.AspNetCore.Server.HttpSys;
 
-internal partial class UrlGroup : IDisposable
+internal sealed partial class UrlGroup : IDisposable
 {
     private static readonly int QosInfoSize =
         Marshal.SizeOf<HttpApiTypes.HTTP_QOS_SETTING_INFO>();

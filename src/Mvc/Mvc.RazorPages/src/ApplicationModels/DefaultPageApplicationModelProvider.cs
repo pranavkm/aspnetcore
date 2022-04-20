@@ -13,7 +13,7 @@ using Resources = Microsoft.AspNetCore.Mvc.RazorPages.Resources;
 
 namespace Microsoft.AspNetCore.Mvc.ApplicationModels;
 
-internal class DefaultPageApplicationModelProvider : IPageApplicationModelProvider
+internal sealed class DefaultPageApplicationModelProvider : IPageApplicationModelProvider
 {
     private const string ModelPropertyName = "Model";
     private readonly PageHandlerPageFilter _pageHandlerPageFilter = new PageHandlerPageFilter();
@@ -60,7 +60,7 @@ internal class DefaultPageApplicationModelProvider : IPageApplicationModelProvid
     /// <param name="actionDescriptor">The <see cref="PageActionDescriptor"/>.</param>
     /// <param name="pageTypeInfo">The <see cref="TypeInfo"/>.</param>
     /// <returns>A <see cref="PageApplicationModel"/> for the given <see cref="TypeInfo"/>.</returns>
-    protected virtual PageApplicationModel CreateModel(
+    private PageApplicationModel CreateModel(
         PageActionDescriptor actionDescriptor,
         TypeInfo pageTypeInfo)
     {

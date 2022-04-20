@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Microsoft.AspNetCore.Mvc.Filters;
 
-internal class MiddlewareFilterBuilderStartupFilter : IStartupFilter
+internal sealed class MiddlewareFilterBuilderStartupFilter : IStartupFilter
 {
     public Action<IApplicationBuilder> Configure(Action<IApplicationBuilder> next)
     {

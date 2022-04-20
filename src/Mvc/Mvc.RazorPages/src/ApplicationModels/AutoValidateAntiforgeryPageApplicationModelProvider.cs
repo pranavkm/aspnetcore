@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace Microsoft.AspNetCore.Mvc.ApplicationModels;
 
-internal class AutoValidateAntiforgeryPageApplicationModelProvider : IPageApplicationModelProvider
+internal sealed class AutoValidateAntiforgeryPageApplicationModelProvider : IPageApplicationModelProvider
 {
     // The order is set to execute after the DefaultPageApplicationModelProvider.
     public int Order => -1000 + 10;

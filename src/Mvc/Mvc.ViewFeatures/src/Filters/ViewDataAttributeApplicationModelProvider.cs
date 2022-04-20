@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
 namespace Microsoft.AspNetCore.Mvc.ViewFeatures.Filters;
 
-internal class ViewDataAttributeApplicationModelProvider : IApplicationModelProvider
+internal sealed class ViewDataAttributeApplicationModelProvider : IApplicationModelProvider
 {
     /// <inheritdoc />
     /// <remarks>This order ensures that <see cref="ViewDataAttributeApplicationModelProvider"/> runs after the <see cref="DefaultApplicationModelProvider"/>.</remarks>

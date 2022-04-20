@@ -11,7 +11,7 @@ using Microsoft.Net.Http.Headers;
 namespace Microsoft.AspNetCore.HttpSys.Internal
 {
     [GeneratedCode("TextTemplatingFileGenerator", "")]
-    internal partial class RequestHeaders
+    internal sealed partial class RequestHeaders
     {
 	    // Tracks if individual fields have been read from native or set directly.
 		// Once read or set, their presence in the collection is marked by if their StringValues is null or not.

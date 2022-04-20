@@ -178,6 +178,10 @@ dotnet_diagnostic.CA1846.severity = warning
 # CA1847: Use string.Contains(char) instead of string.Contains(string) with single characters
 dotnet_diagnostic.CA1847.severity = warning
 
+# CA1852: Seal internal types.
+# Configured as a suggestion due to lack of IVT support.
+dotnet_diagnostic.CA1852.severity = suggestion
+
 # CA2007: Consider calling ConfigureAwait on the awaited task
 dotnet_diagnostic.CA2007.severity = warning
 
